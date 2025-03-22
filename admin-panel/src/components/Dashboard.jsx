@@ -21,7 +21,7 @@ const AdminDashboard = () => {
   const fetchCoupons = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/coupons/admin/all"
+        "https://coupon-system-91ni.onrender.com/api/coupons/admin/all"
       );
       setCoupons(response.data);
     } catch (error) {
@@ -31,7 +31,7 @@ const AdminDashboard = () => {
 
   const addCoupon = async () => {
     try {
-      await axios.post("http://localhost:5000/api/coupons/admin/add", {
+      await axios.post("https://coupon-system-91ni.onrender.com/api/coupons/admin/add", {
         code: newCoupon,
       });
       setNewCoupon("");
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
   const toggleCoupon = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/coupons/admin/toggle/${id}`
+        `https://coupon-system-91ni.onrender.com/api/coupons/admin/toggle/${id}`
       );
       fetchCoupons();
     } catch (error) {
@@ -88,9 +88,8 @@ const AdminDashboard = () => {
               <tr key={coupon._id} className="border-t">
                 <td className="p-2 text-center">{coupon.code}</td>
                 <td
-                  className={`p-2 text-center ${
-                    coupon.isClaimed ? "text-red-500" : "text-green-500"
-                  }`}
+                  className={`p-2 text-center ${coupon.isClaimed ? "text-red-500" : "text-green-500"
+                    }`}
                 >
                   {coupon.isClaimed ? "Claimed" : "Available"}
                 </td>

@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/admin/login", { password });
+      const response = await axios.post("https://coupon-system-91ni.onrender.com/api/admin/login", { password });
       if (response.data.success) {
         localStorage.setItem("adminToken", response.data.token);
         navigate("/dashboard");

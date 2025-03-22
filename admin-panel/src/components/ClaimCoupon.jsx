@@ -8,7 +8,7 @@ const ClaimCoupon = () => {
   const claimCoupon = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/coupons/claim",
+        "https://coupon-system-91ni.onrender.com/api/coupons/claim",
         {},
         { withCredentials: true }
       );
